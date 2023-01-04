@@ -43,7 +43,7 @@
 
 (defn process-search-result [result]
   (-> result
-      (select-keys ["title" "year" "id" "tvdbId" "tmdbId"])
+      (select-keys ["title" "year" "id" "tvdbId" "tmdbId" "foreignBookId"])
       from-camel))
 
 (defn process-profile [profile]

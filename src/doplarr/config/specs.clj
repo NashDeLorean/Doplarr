@@ -7,11 +7,13 @@
 (spec/def :sonarr/url string?)
 (spec/def :radarr/url string?)
 (spec/def :overseerr/url string?)
+(spec/def :readarr/url string?)
 
 ; Backend API keys
 (spec/def :sonarr/api string?)
 (spec/def :radarr/api string?)
 (spec/def :overseerr/api string?)
+(spec/def :readarr/api string?)
 
 ; Discord bot token - the only really "required" item
 (spec/def :discord/token string?)
@@ -45,8 +47,8 @@
 (defmacro matched-keys [& ks]
   `(when-req #(some (partial contains? %) ~(vec ks)) (spec/keys :req ~(vec ks))))
 
-(spec/def ::has-backend #(some (partial contains? %) [:sonarr/url :radarr/url :overseerr/url]))
-(expound/defmsg ::has-backend "config must contain at least one of the following backends: sonarr, radarr, overseerr
+(spec/def ::has-backend #(some (partial contains? %) [:sonarr/url :radarr/url :overseerr/url :readarr/url]))
+(expound/defmsg ::has-backend "config must contain at least one of the following backends: sonarr, radarr, overseerr, or readarr
 If you have configured one, make sure to check spelling. A valid configuration contains both the api key and url")
 
 ; Complete configuration
@@ -66,4 +68,5 @@ If you have configured one, make sure to check spelling. A valid configuration c
                     ::has-backend
                     (matched-keys :sonarr/url :sonarr/api)
                     (matched-keys :radarr/url :radarr/api)
-                    (matched-keys :overseerr/url :overseerr/api)))
+                    (matched-keys :overseerr/url :overseerr/api)
+                    (matched-keys :readarr/url :readarr/api)))

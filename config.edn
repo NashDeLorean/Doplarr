@@ -2,6 +2,8 @@
  :sonarr/api ""
  :radarr/url ""
  :radarr/api ""
+ ; :readarr/url ""
+ ; :readarr/api ""
  ; :overseerr/url ""
  ; :overseerr/api ""
  :discord/token ""
@@ -13,6 +15,8 @@
  ; :sonarrr/language-profile ""
  ; :sonarr/rootfolder ""
  ; :sonarr/season-folders true
+ ; :readarr/language-profile ""
+ ; :readarr/rootfolder ""
  ; :discord/max-results 10
  ; :overseerr/default-id 1
  ; :log-level :trace

@@ -24,6 +24,9 @@
     :overseerr/url
     :overseerr/api
     :overseerr/default-id
+    ; Readarr
+    :readarr/url
+    :readarr/api
     ; Discord
     :discord/token
     :discord/max-results
@@ -53,6 +56,7 @@
         (redact :sonarr/api)
         (redact :radarr/api)
         (redact :overseerr/api)
+        (redact :readarr/api)
         (redact :discord/token))))
 
 (defn valid-config [env]
